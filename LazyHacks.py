@@ -1,5 +1,5 @@
 from time import sleep, time
-from tools import MITM,portScanner,ARPscan,Zip_cracker,Crypto,BackdoorServer,sshBrute
+from tools import MITM,portScanner,ARPscan,Zip_cracker,Crypto,BackdoorServer,sshBrute,hashFactory
 from termcolor import colored
 
 def loading(t):
@@ -31,7 +31,7 @@ def main():
     'Crypto For Files',
     'Start Advance Backdoor Server',
     'sshBrute',
-    'HashCracker',
+    'HashFactory',
     'DDoS Automations',
     'FtpBrute'
     ]
@@ -48,36 +48,41 @@ def main():
   try:
     num = input(colored('\n LazyHacks@choose~option~$ ','green'))
     print('\n')
-    if num == '0':
+    if num == '0' or num == '00':
+      print('\n [!!] Exiting...')
       exit(0)
-    elif num == '1':
-      MITM.main()
+    elif num == '1' or num == '01':
+      tools.MITM.main()
       loading(5)
       main()
-    elif num=='2':
+    elif num=='2' or num == '02':
       portScanner.main()
       loading(5)
       main()
-    elif num=='3':
+    elif num=='3' or num == '03':
       ARPscan.main()
       loading(5)
       main()
-    elif num=='4':
+    elif num=='4' or num == '04':
       Zip_cracker.main()
       loading(5)
       main()
-    elif num=='5':
+    elif num=='5' or num == '05':
       Crypto.main()
       loading(5)
       main()
-    elif num=='6':
+    elif num=='6' or num == '06':
       BackdoorServer.main()
       loading(5)
       main()
-    elif num=='7' :
+    elif num=='7' or num == '07':
       sshBrute.main()
       loading(5)
       main()
+    elif num=='8' or num == '08':
+      hashFactory.main()
+      loading(5)
+      main() 
     else:
       print(colored('\n [!!] Total 10 options are Added Choose Between 1 to 10','red'))
       loading(5)
