@@ -72,13 +72,13 @@ def main():
   print(colored("\n Index       Action \n",'blue'))
   for tool in tools:
     print(colored("[  " + str(tools.index(tool)+1)+"  ]      "+ tool,'blue'))
-  print(colored('[  0  ]      Exit','red'))  
-  selected = input(colored('\n[?] HashFactory@choose~option : ','yellow'))
-  if selected == '1':
+  print(colored('[  0  ]      Exit From HashFactory','red'))  
+  selected = input(colored('\nHashFactory@chooseOption~#$ : ','yellow'))
+  if selected == '1' or selected == '01':
     stringToHash()
-  elif selected == '2':
+  elif selected == '2' or selected == '02':
     md5ToString()
-  elif selected == '3':
+  elif selected == '3' or selected == '03':
     sha1ToString()
   else:
     print(colored(' [!!] Exiting...','red')) 

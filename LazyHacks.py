@@ -3,6 +3,7 @@ from tools import MITM,portScanner,ARPscan,Zip_cracker,Crypto,BackdoorServer,ssh
 from termcolor import colored
 
 def loading(t):
+  input(colored('\n [+] Press Enter to continue ...','green'))
   animation = "|/-\\"
   idx = 0
   while (idx/5) < t:
@@ -30,7 +31,7 @@ def main():
     'Zip File Cracker',
     'Crypto For Files',
     'Start Advance Backdoor Server',
-    'sshBrute',
+    'sshBrute - Linux Only',
     'HashFactory',
     'DDoS Automations',
     'FtpBrute'
@@ -46,26 +47,26 @@ def main():
     print(colored('[  '+ index + '  ]         ' +i , 'blue'))
   print(colored('[  00  ]         '+'Exit' , 'red'))  
   try:
-    num = input(colored('\n LazyHacks@choose~option~$ ','green'))
+    num = input(colored('\n LazyHacks@chooseOption~#$ ','green'))
     print('\n')
     if num == '0' or num == '00':
       print('\n [!!] Exiting...')
       exit(0)
     elif num == '1' or num == '01':
       tools.MITM.main()
-      loading(5)
+      loading(3)
       main()
     elif num=='2' or num == '02':
       portScanner.main()
-      loading(5)
+      loading(3)
       main()
     elif num=='3' or num == '03':
       ARPscan.main()
-      loading(5)
+      loading(3)
       main()
     elif num=='4' or num == '04':
       Zip_cracker.main()
-      loading(5)
+      loading(3)
       main()
     elif num=='5' or num == '05':
       Crypto.main()
@@ -84,7 +85,7 @@ def main():
       loading(5)
       main() 
     else:
-      print(colored('\n [!!] Total 10 options are Added Choose Between 1 to 10','red'))
+      print(colored('\n [!!] Total 8 options are Working Choose Between 0-8 ','red'))
       loading(5)
       main()
   except KeyboardInterrupt:
