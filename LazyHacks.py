@@ -1,5 +1,5 @@
 from time import sleep, time
-from tools import MITM,portScanner,ARPscan,Zip_cracker,Crypto,BackdoorServer
+from tools import MITM,portScanner,ARPscan,Zip_cracker,Crypto,BackdoorServer,sshBrute
 from termcolor import colored
 
 def loading(t):
@@ -29,16 +29,24 @@ def main():
     'ARP Scanner',
     'Zip File Cracker',
     'Crypto For Files',
-    'Start Advance Backdoor Server'
+    'Start Advance Backdoor Server',
+    'sshBrute',
+    'HashCracker',
+    'DDoS Automations',
+    'FtpBrute'
     ]
   print(colored(banner,'red') + '\n')
   print(colored(art,'yellow') + '\n')
   print(colored(' Index            Tool Name', 'blue')+'\n')
   for i in toolList:
-    print(colored('[  '+str(toolList.index(i)+1) + '.  ]         ' +i , 'blue'))
-  print(colored('[  0.  ]         '+'Exit' , 'red'))  
+    if toolList.index(i) < 9:
+      index = '0' + str(toolList.index(i) + 1)
+    else:
+      index = str(toolList.index(i) + 1)
+    print(colored('[  '+ index + '  ]         ' +i , 'blue'))
+  print(colored('[  00  ]         '+'Exit' , 'red'))  
   try:
-    num = input(colored('\n Choose Tool : ','green'))
+    num = input(colored('\n LazyHacks@choose~option~$ ','green'))
     print('\n')
     if num == '0':
       exit(0)
@@ -66,8 +74,12 @@ def main():
       BackdoorServer.main()
       loading(5)
       main()
+    elif num=='7' :
+      sshBrute.main()
+      loading(5)
+      main()
     else:
-      print(colored('\n [!!] Total 5 options are Added Choose Between 1 to 5','red'))
+      print(colored('\n [!!] Total 10 options are Added Choose Between 1 to 10','red'))
       loading(5)
       main()
   except KeyboardInterrupt:
