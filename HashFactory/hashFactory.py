@@ -31,12 +31,12 @@ def tryopen(wordlist):
 	try:
 		passfile = open(wordlist, "r")
 	except FileNotFoundError:
-		print(colored("[!!] No such file at that path. :( ", "red"))
+		print(colored("[!] No such file at that path. :( ", "red"))
 		quit()
 
 def md5ToString():
-	md5hash = input(colored("[?] Enter md5 Hash value: ",'yellow'))
-	wordlist = input(colored("[?] Enter path to wordlist: ",'yellow'))
+	md5hash = input(colored("[*] Enter md5 Hash value: ",'yellow'))
+	wordlist = input(colored("[*] Enter path to wordlist: ",'yellow'))
 	tryopen(wordlist)
 	
 	for password in passfile:
@@ -53,8 +53,8 @@ def md5ToString():
 
 
 def sha1ToString():
-	sha1hash = input(colored("[?] Enter sha1 Hash value : ",'yellow'))
-	passlist = input(colored("[?] Enter Wordlist path : ",'yellow'))
+	sha1hash = input(colored("[*] Enter sha1 Hash value : ",'yellow'))
+	passlist = input(colored("[*] Enter Wordlist path : ",'yellow'))
 	passfile = open(passlist,'r').readlines()
 
 	for password in passfile:
@@ -81,5 +81,5 @@ def main():
   elif selected == '3' or selected == '03':
     sha1ToString()
   else:
-    print(colored(' [!!] Exiting...','red')) 
+    print(colored('[!] Exiting...','red')) 
 

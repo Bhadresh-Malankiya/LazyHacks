@@ -11,11 +11,10 @@ def duration():
   return duration
 
 def connScan(tgtHost,tgtPort):
-
   try:
     sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-    sock.connect((tgtHost,tgtPort))
-    print(colored(' '+str(tgtPort)+' /tcp Open','green'))
+    sock.connect((tgtHost,tgtPort)) 
+    print(colored(' '+str(tgtPort)+' /tcp Open ','green'))
   except :
     pass
   finally:
@@ -28,9 +27,9 @@ def portScan(tgtHost,tgtPorts):
     print('Unknown Host ', tgtHost)
   try:
     tgtName = socket.gethostbyaddr(tgtIP)
-    print(colored('\n [+] Scan Result for :' + tgtName+ '\n','green'))
+    print(colored('\n[+] Scan Result for :' + tgtName+ '\n','green'))
   except:
-    print(colored('\n [+] Scan Result for :' + tgtIP + '\n','green'))
+    print(colored('\n[+] Scan Result for :' + tgtIP + '\n','green'))
 
   socket.setdefaulttimeout(1)
 
@@ -53,8 +52,4 @@ def main():
     tgtPorts = tgtPort.split(',')
   else:
     tgtPorts = None
-
   portScan(tgtHost,tgtPorts)
-
-  print(colored('\n [+] Scan finished in ' + str(duration())[:5] + ' Seconds','green'))
-

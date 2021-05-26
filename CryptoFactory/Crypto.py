@@ -18,7 +18,7 @@ def encrypt_file(filename):
     data_to_encrypt = file_read.read()
     encrypted_data = f.encrypt(data_to_encrypt)
   except:
-    print(colored('[!!] Provided file is not exist :( Cryptography Terminated in :'+ str(duration()), 'red'))
+    print(colored('[!] Provided file is not exist :( Cryptography Terminated in :'+ str(duration()), 'red'))
     exit(0)
 
   file_write = open(filename , 'wb')
@@ -33,7 +33,7 @@ def encrypt_file(filename):
 
 def decrypt_file(filename,keyfile):
   try:
-    key_file = open(keyfilename,'rb')
+    key_file = open(keyfile,'rb')
     key = key_file.read()
     f = Fernet(key)
   except:

@@ -23,8 +23,6 @@ def arp_scan(iface, ip_range):
   duration = time.time() - curr_time
   print(colored("[+] Scan Completed, Duration : " + str(duration),'green'))
 
-
-
 # scanner.py eth0 192.168.0.1/24
 def main():
   addrs = psutil.net_if_addrs()

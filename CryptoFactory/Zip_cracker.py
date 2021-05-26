@@ -11,7 +11,6 @@ def extract_zip(zFile,passwd):
     print("[!] Exited at",duration,"Seconds")
   except: 
     pass
-    
 
 def main():
   #dictionary attack
