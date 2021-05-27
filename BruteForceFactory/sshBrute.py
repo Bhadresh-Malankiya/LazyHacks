@@ -22,9 +22,23 @@ def connect(user,host,password):
   return(child)
 
 def main():
-  host = input(colored('[*] Enter Host : ','yellow'))
-  user = input(colored('[*] Enter Username : ','yellow'))
-  filename = input(colored('[*] PassFile Path : ','yellow'))
+  banner = '''
+  
+
+  .▄▄ · .▄▄ ·  ▄ .▄    ▄▄▄▄· ▄▄▄  ▄• ▄▌▄▄▄▄▄▄▄▄ .·▄▄▄      ▄▄▄   ▄▄· ▄▄▄ .
+  ▐█ ▀. ▐█ ▀. ██▪▐█    ▐█ ▀█▪▀▄ █·█▪██▌•██  ▀▄.▀·▐▄▄·▪     ▀▄ █·▐█ ▌▪▀▄.▀·
+  ▄▀▀▀█▄▄▀▀▀█▄██▀▐█    ▐█▀▀█▄▐▀▀▄ █▌▐█▌ ▐█.▪▐▀▀▪▄██▪  ▄█▀▄ ▐▀▀▄ ██ ▄▄▐▀▀▪▄
+  ▐█▄▪▐█▐█▄▪▐███▌▐▀    ██▄▪▐█▐█•█▌▐█▄█▌ ▐█▌·▐█▄▄▌██▌.▐█▌.▐▌▐█•█▌▐███▌▐█▄▄▌
+   ▀▀▀▀  ▀▀▀▀ ▀▀▀ ·    ·▀▀▀▀ .▀  ▀ ▀▀▀  ▀▀▀  ▀▀▀ ▀▀▀  ▀█▄▀▪.▀  ▀·▀▀▀  ▀▀▀ 
+
+  BruteForce Factory | Secure Shell(SSH) BruteForcer | Linux Only
+  
+  [!] WARNING : You will get some error if using windows for it
+  '''
+  print(colored(banner,'red'))
+  host = input(colored('BruteforceFactory@Target~IP~#$ ','yellow'))
+  user = input(colored('BruteforceFactory@Username~#$ ','yellow'))
+  filename = input(colored('BruteforceFactory@passfile~path~#$ ','yellow'))
   file = open(filename,'r')
   for password in file.readlines():
     password =  password.strip('\n')

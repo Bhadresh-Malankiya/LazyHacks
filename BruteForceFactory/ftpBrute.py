@@ -21,6 +21,19 @@ def brtueLogin(hostname,passwdFile):
   print(colored("[-] Password Not In List",'red'))
 
 def main():
-  host = input(colored("[*] Enter Target IP Adress : ",'yellow'))
-  passwdFile = input(colored("[*] Enter user/password File Path : ",'yellow'))
+  banner = '''
+  
+
+  ·▄▄▄▄▄▄▄▄ ▄▄▄·    ▄▄▄▄· ▄▄▄  ▄• ▄▌▄▄▄▄▄▄▄▄ .·▄▄▄      ▄▄▄   ▄▄· ▄▄▄ .
+  ▐▄▄·•██  ▐█ ▄█    ▐█ ▀█▪▀▄ █·█▪██▌•██  ▀▄.▀·▐▄▄·▪     ▀▄ █·▐█ ▌▪▀▄.▀·
+  ██▪  ▐█.▪ ██▀·    ▐█▀▀█▄▐▀▀▄ █▌▐█▌ ▐█.▪▐▀▀▪▄██▪  ▄█▀▄ ▐▀▀▄ ██ ▄▄▐▀▀▪▄
+  ██▌. ▐█▌·▐█▪·•    ██▄▪▐█▐█•█▌▐█▄█▌ ▐█▌·▐█▄▄▌██▌.▐█▌.▐▌▐█•█▌▐███▌▐█▄▄▌
+  ▀▀▀  ▀▀▀ .▀       ·▀▀▀▀ .▀  ▀ ▀▀▀  ▀▀▀  ▀▀▀ ▀▀▀  ▀█▄▀▪.▀  ▀·▀▀▀  ▀▀▀ 
+  
+  BruteForce Factory | FTP Credentials BruteForcer | FTPBrute
+
+  '''
+  print(colored(banner,'red'))
+  host = input(colored("BruteforceFactory@Target~IP~#$ ",'yellow'))
+  passwdFile = input(colored("BruteforceFactory@user:pass~filepath~#$ ",'yellow'))
   brtueLogin(host,passwdFile)

@@ -1,6 +1,6 @@
 from time import sleep, time
 from recconFactory import ARPscan,portScanner
-from attackFactory import MITM,BackdoorServer
+from attackFactory import MITM,BackdoorServer,DDos
 from BruteForceFactory import ftpBrute,sshBrute
 from HashFactory import hashFactory
 from CryptoFactory import Crypto,Zip_cracker
@@ -29,9 +29,9 @@ def main():
     'Zip File Cracker',
     'Crypto For Files'
     ]
-  print(colored('\n-----------------------------------------------------------------------------------------------\n','yellow'))
+ 
   banners.getbanner()
-  print(colored('\n-----------------------------------------------------------------------------------------------\n','yellow'))
+  
   print(colored(' Index            Tool Name', 'blue'))
   
   for i in toolList:
@@ -50,50 +50,58 @@ def main():
       exit(0)
     elif num == '1' or num == '01':
       portScanner.main()
-      loading(5)
+      loading(3)
       main()
     elif num=='2' or num == '02':
       ARPscan.main()
-      loading(5)
+      loading(3)
       main()
     elif num=='3' or num == '03':
       MITM.main()
-      loading(5)
+      loading(3)
       main()
     elif num=='4' or num == '04':
-      print(colored('[!] Tool not added ', 'red'))
-      loading(5)
+      DDos.main()
+      loading(3)
       main()
     elif num=='5' or num == '05':
       BackdoorServer.main()
-      loading(5)
+      loading(3)
       main()
     elif num=='6' or num == '06':
       sshBrute.main()
-      loading(5)
+      loading(3)
       main()
     elif num=='7' or num == '07':
       ftpBrute.main()
-      loading(5)
+      loading(3)
       main()
     elif num=='8' or num == '08':
       hashFactory.main()
-      loading(5)
+      loading(3)
       main()
     elif num=='9' or num == '09':
       Zip_cracker.main()
-      loading(5)
+      loading(3)
       main()  
     elif num=='10':
       Crypto.main()
-      loading(5)
+      loading(3)
       main()
     else:
       print(colored('\n[!] Total 10 options are Added Choose Between 1 to 10','red'))
-      loading(5)
+      loading(3)
       main()
   except KeyboardInterrupt:
-    print(colored('\n[!] Exiting Keyboard Intrrupted.','red'))
+    try:
+      opt = input(colored("\n[?] Exit (Y/n) : ",'red'))
+      if opt == "y" or opt == "Y":
+        exit(0)
+      else:
+        loading(2)
+        main()  
+    except KeyboardInterrupt:  
+      print(colored('\n[!] Exiting Keyboard Intrrupted.','red'))
 
 if __name__ == '__main__':
   main()

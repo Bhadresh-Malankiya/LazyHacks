@@ -45,10 +45,25 @@ def portScan(tgtHost,tgtPorts):
   
   
 def main():
-  tgtHost = input(colored('Target Host :','blue'))
-  option = input(colored('1. Scan 1 - 1024 well-known ports \n2. Scan Custom Ports \nChoose Option : ','blue'))
+  banner = '''
+  
+
+   ▄▄▄·      ▄▄▄  ▄▄▄▄▄    .▄▄ ·  ▄▄·  ▄▄▄·  ▐ ▄  ▐ ▄ ▄▄▄ .▄▄▄  
+  ▐█ ▄█▪     ▀▄ █·•██      ▐█ ▀. ▐█ ▌▪▐█ ▀█ •█▌▐█•█▌▐█▀▄.▀·▀▄ █·
+   ██▀· ▄█▀▄ ▐▀▀▄  ▐█.▪    ▄▀▀▀█▄██ ▄▄▄█▀▀█ ▐█▐▐▌▐█▐▐▌▐▀▀▪▄▐▀▀▄ 
+  ▐█▪·•▐█▌.▐▌▐█•█▌ ▐█▌·    ▐█▄▪▐█▐███▌▐█ ▪▐▌██▐█▌██▐█▌▐█▄▄▌▐█•█▌
+  .▀    ▀█▄▀▪.▀  ▀ ▀▀▀      ▀▀▀▀ ·▀▀▀  ▀  ▀ ▀▀ █▪▀▀ █▪ ▀▀▀ .▀  ▀
+
+  Reccon Factory | Port Scanning | First step of Pentester
+
+  [!] Simple Port Scanning For Target host
+
+  '''
+  print(colored(banner,'red'))
+  tgtHost = input(colored('RecconFactory@Target~Host~#$ ','blue'))
+  option = input(colored('1. Scan 1 - 1024 well-known ports \n2. Scan Custom Ports \nRecconFactory@Choose~Option~#$ ','blue'))
   if(option == '2'):
-    tgtPort = input(colored('Target Port Seperated with , (commma) : ','yellow'))
+    tgtPort = input(colored('RecconFactory@Target~Ports(Seperated with comma)~#$ ','yellow'))
     tgtPorts = tgtPort.split(',')
   else:
     tgtPorts = None

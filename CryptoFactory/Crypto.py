@@ -52,6 +52,19 @@ def decrypt_file(filename,keyfile):
 
 
 def main():
+  banner = '''
+
+   ▄▄· ▄▄▄   ▄· ▄▌ ▄▄▄·▄▄▄▄▄      ·▄▄▄▪  ▄▄▌  ▄▄▄ .
+  ▐█ ▌▪▀▄ █·▐█▪██▌▐█ ▄█•██  ▪     ▐▄▄·██ ██•  ▀▄.▀·
+  ██ ▄▄▐▀▀▄ ▐█▌▐█▪ ██▀· ▐█.▪ ▄█▀▄ ██▪ ▐█·██▪  ▐▀▀▪▄
+  ▐███▌▐█•█▌ ▐█▀·.▐█▪·• ▐█▌·▐█▌.▐▌██▌.▐█▌▐█▌▐▌▐█▄▄▌
+  ·▀▀▀ .▀  ▀  ▀ • .▀    ▀▀▀  ▀█▄▀▪▀▀▀ ▀▀▀.▀▀▀  ▀▀▀ 
+
+  Crypto Factory | CryptoFile | Cryptography
+  
+  [!] Symmetric Key Encrypt Decrypt Data From file
+
+  '''
   options = ['Which Task you want to Perform :','Encryption','Deryption']
   print(colored(' Index  Options \n', 'blue'))
 
@@ -59,14 +72,14 @@ def main():
     print(colored('[  '+str(options.index(i))+'  ]  ' + str(i), 'blue'))
   print('\n')
   
-  selected = input(colored('1 OR 2 : ','blue'))
+  selected = input(colored('CryptoFactory@Choose~Option~#$ ','blue'))
   operation = options[int(selected)]
-  filename = input(colored('File Path to Encrypt/Decrypt : ','blue'))
+  filename = input(colored('CryptoFactory@File~path~#$ ','blue'))
 
   if selected == '1':
     encrypt_file(filename)
   elif selected == '2':
-    keyfilename = input(colored('Path of Key file : ', 'blue'))
+    keyfilename = input(colored('CryptoFactory@Keyfile~path~#$ ', 'blue'))
     decrypt_file(filename,keyfilename)
   else:
     print('Select 1 or 2 ')

@@ -2,7 +2,7 @@ import hashlib
 from termcolor import colored
 
 def stringToHash():
-  hashvalue = input(colored("Enter a string to hash: ",'blue'))
+  hashvalue = input(colored("HashFactory@Input~String~#$ ",'blue'))
 
   hashobj1 = hashlib.md5()
   hashobj1.update(hashvalue.encode())
@@ -35,8 +35,8 @@ def tryopen(wordlist):
 		quit()
 
 def md5ToString():
-	md5hash = input(colored("[*] Enter md5 Hash value: ",'yellow'))
-	wordlist = input(colored("[*] Enter path to wordlist: ",'yellow'))
+	md5hash = input(colored("HashFactory@MD5~Hash~value~#$ ",'yellow'))
+	wordlist = input(colored("HashFactory@Wordlist~path~#$ ",'yellow'))
 	tryopen(wordlist)
 	
 	for password in passfile:
@@ -53,8 +53,8 @@ def md5ToString():
 
 
 def sha1ToString():
-	sha1hash = input(colored("[*] Enter sha1 Hash value : ",'yellow'))
-	passlist = input(colored("[*] Enter Wordlist path : ",'yellow'))
+	sha1hash = input(colored("HashFactory@SHA1~Value~#$ ",'yellow'))
+	passlist = input(colored("HashFacory@Wordlist~path~#$ ",'yellow'))
 	passfile = open(passlist,'r').readlines()
 
 	for password in passfile:
@@ -68,6 +68,22 @@ def sha1ToString():
 	print(colored("Password not in passwordlist. :(","yellow"))
 
 def main():
+  banner = '''
+  
+
+   ▄ .▄ ▄▄▄· .▄▄ ·  ▄ .▄    ·▄▄▄ ▄▄▄·  ▄▄· ▄▄▄▄▄      ▄▄▄   ▄· ▄▌
+  ██▪▐█▐█ ▀█ ▐█ ▀. ██▪▐█    ▐▄▄·▐█ ▀█ ▐█ ▌▪•██  ▪     ▀▄ █·▐█▪██▌
+  ██▀▐█▄█▀▀█ ▄▀▀▀█▄██▀▐█    ██▪ ▄█▀▀█ ██ ▄▄ ▐█.▪ ▄█▀▄ ▐▀▀▄ ▐█▌▐█▪
+  ██▌▐▀▐█ ▪▐▌▐█▄▪▐███▌▐▀    ██▌.▐█ ▪▐▌▐███▌ ▐█▌·▐█▌.▐▌▐█•█▌ ▐█▀·.
+  ▀▀▀ · ▀  ▀  ▀▀▀▀ ▀▀▀ ·    ▀▀▀  ▀  ▀ ·▀▀▀  ▀▀▀  ▀█▄▀▪.▀  ▀  ▀ • 
+
+        Hash Factory | String to Hash | Hash to String
+
+  [!] String to 5 types of hash Generator
+  [!] 2 types of Hash to string Cracker
+
+  '''
+  print(colored(banner,'red'))
   tools = ['String -> Hash','MD5 -> String','SHA1 -> String']
   print(colored("\n Index       Action \n",'blue'))
   for tool in tools:

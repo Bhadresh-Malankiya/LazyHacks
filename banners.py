@@ -168,7 +168,7 @@ o                           o    o               8
 : :: : :   :   : :  : :: : :     :      :   : :   :   : :   :: :: :   :   :::  :: : :    
                                                                                         
 ''']
-  colors = ["blue","green","red","yellow","magenta","cyan"]
+  colors = ["green","red","magenta","yellow"]
   rndidx = random.randint(0,len(banners) - 1 )
   rndclr = random.randint(0,len(colors) - 1 )
   print(colored(banners[rndidx],colors[rndclr]))
