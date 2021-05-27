@@ -29,9 +29,16 @@ def main():
     'Zip File Cracker',
     'Crypto For Files'
     ]
- 
+  des = '''
+  LazyHacks | Make Hacking Easy with Automation | Python 3.9.2
+
+  [!] STRICKLY WARNING : Use it for only Educational purpose
+      We are not responsible for any criminal activity
+
+  '''
+
   banners.getbanner()
-  
+  print(colored(des,'red'))
   print(colored(' Index            Tool Name', 'blue'))
   
   for i in toolList:
