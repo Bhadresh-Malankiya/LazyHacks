@@ -60,8 +60,9 @@ def main():
 
   '''
   print(colored(banner,'red'))
-  tgtHost = input(colored('RecconFactory@Target~Host~#$ ','blue'))
-  option = input(colored('1. Scan 1 - 1024 well-known ports \n2. Scan Custom Ports \nRecconFactory@Choose~Option~#$ ','blue'))
+  tgtHost = input(colored('RecconFactory@Target~Host~#$ ','yellow'))
+  print(colored("\n1. Scan 1 - 1024 well-known ports \n2. Scan Custom Ports",'blue'))
+  option = input(colored('\nRecconFactory@Choose~Option~#$ ','yellow'))
   if(option == '2'):
     tgtPort = input(colored('RecconFactory@Target~Ports(Seperated with comma)~#$ ','yellow'))
     tgtPorts = tgtPort.split(',')
