@@ -67,6 +67,25 @@ def sha1ToString():
 
 	print(colored("Password not in passwordlist. :(","yellow"))
 
+def get_tools():
+  tools = ['String -> Hash','MD5 -> String','SHA1 -> String']
+  print(colored("\n Index       Action \n",'blue'))
+  for tool in tools:
+    print(colored("[  " + str(tools.index(tool)+1)+"  ]      "+ tool,'blue'))
+  print(colored('[  0  ]      Exit From HashFactory','red'))  
+  selected = input(colored('\nHashFactory@chooseOption~#$ : ','yellow'))
+  if selected == '1' or selected == '01':
+    stringToHash()
+    get_tools()
+  elif selected == '2' or selected == '02':
+    md5ToString()
+    get_tools()
+  elif selected == '3' or selected == '03':
+    sha1ToString()
+    get_tools()
+  else:
+    print(colored('[!] Exiting...','red')) 
+
 def main():
   banner = '''
   
@@ -84,18 +103,5 @@ def main():
 
   '''
   print(colored(banner,'red'))
-  tools = ['String -> Hash','MD5 -> String','SHA1 -> String']
-  print(colored("\n Index       Action \n",'blue'))
-  for tool in tools:
-    print(colored("[  " + str(tools.index(tool)+1)+"  ]      "+ tool,'blue'))
-  print(colored('[  0  ]      Exit From HashFactory','red'))  
-  selected = input(colored('\nHashFactory@chooseOption~#$ : ','yellow'))
-  if selected == '1' or selected == '01':
-    stringToHash()
-  elif selected == '2' or selected == '02':
-    md5ToString()
-  elif selected == '3' or selected == '03':
-    sha1ToString()
-  else:
-    print(colored('[!] Exiting...','red')) 
+  get_tools()
 

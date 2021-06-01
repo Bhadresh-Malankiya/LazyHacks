@@ -84,7 +84,7 @@ def shell():
 			print(result)
 
 def download(url):
-	get_response = requests.get(url) 
+	get_response = requests.get(url)
 	file_name = url.split("/")[-1]
 	out_file =open(file_name, "wb")
 	out_file.write(get_response.content)
