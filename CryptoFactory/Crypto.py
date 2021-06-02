@@ -65,11 +65,11 @@ def main():
   [!] Symmetric Key Encrypt Decrypt Data From file
 
   '''
-  options = ['Which Task you want to Perform :','Encryption','Deryption']
-  print(colored(' Index  Options \n', 'blue'))
+  options = ['Encryption','Deryption']
+  print(colored(' Index  Operation \n', 'blue'))
 
   for i in options:
-    print(colored('[  '+str(options.index(i))+'  ]  ' + str(i), 'blue'))
+    print(colored('[  '+str(options.index(i)+1)+'  ]  ' + str(i), 'blue'))
   print('\n')
   
   selected = input(colored('CryptoFactory@Choose~Option~#$ ','blue'))
