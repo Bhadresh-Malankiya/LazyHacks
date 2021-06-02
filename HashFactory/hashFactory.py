@@ -27,12 +27,13 @@ def stringToHash():
 
 
 def tryopen(wordlist):
-	global passfile
-	try:
-		passfile = open(wordlist, "r")
-	except FileNotFoundError:
-		print(colored("[!] No such file at that path. :( ", "red"))
-		quit()
+  global passfile
+  try:
+    passfile = open(wordlist,"r")
+  except FileNotFoundError:
+    print(colored("[!] No such file at that path. :( ", "red"))
+    get_tools()
+		
 
 def md5ToString():
 	md5hash = input(colored("HashFactory@MD5~Hash~value~#$ ",'yellow'))
@@ -45,8 +46,7 @@ def md5ToString():
 		md5digest = hashlib.md5(enc_word.strip()).hexdigest()
 	
 		if md5digest == md5hash:
-			print(colored("[+] The password is: " + str(password) ,"green"))
-			exit(0)
+			print(colored("[+] The password is : " + str(password) ,"green"))
 	
 	print(colored("Password not in passwordlist. :(","yellow"))
 
@@ -55,15 +55,13 @@ def md5ToString():
 def sha1ToString():
 	sha1hash = input(colored("HashFactory@SHA1~Value~#$ ",'yellow'))
 	passlist = input(colored("HashFacory@Wordlist~path~#$ ",'yellow'))
-	passfile = open(passlist,'r').readlines()
-
+	tryopen(passlist)
 	for password in passfile:
 		hashguess = hashlib.sha1(password.strip('\n').encode()).hexdigest()
 		if hashguess == sha1hash:
-			print(colored("[*] The password is: " + str(password) ,"green"))
-			quit()
+			print(colored("[+] The password is : " + str(password) ,"green"))
 		else:
-			print(colored("[*] Password guess " + str(password) + " doesn't match :( ", "red"))
+			print(colored("[-] Password guess " + str(password) + " doesn't match :( ", "red"))
 
 	print(colored("Password not in passwordlist. :(","yellow"))
 
@@ -78,13 +76,20 @@ def get_tools():
     stringToHash()
     get_tools()
   elif selected == '2' or selected == '02':
-    md5ToString()
-    get_tools()
+    try:
+      md5ToString()
+      get_tools()
+    except NameError:
+      pass
   elif selected == '3' or selected == '03':
-    sha1ToString()
-    get_tools()
+    try:
+      sha1ToString()
+      get_tools()
+    except NameError:
+      pass
+    
   else:
-    print(colored('[!] Exiting...','red')) 
+    print(colored('[!] Exiting...','red'))
 
 def main():
   banner = '''
