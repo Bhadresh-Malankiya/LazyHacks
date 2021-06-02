@@ -45,6 +45,7 @@ def main():
     password =  password.strip('\n')
     try:
       child = connect(user,host,password)
-      print(colored("\n [+] Password Found : " + password + "\n",'green'))
+      print(colored("\n[+] Password Found : " + password + "\n",'green'))
+      break
     except :
       print(colored("[-] Wrong Password : " + password,'red'))     
