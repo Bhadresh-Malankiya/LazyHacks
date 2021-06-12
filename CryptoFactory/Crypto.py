@@ -73,7 +73,6 @@ def main():
   print('\n')
   
   selected = input(colored('CryptoFactory@Choose~Option~#$ ','blue'))
-  operation = options[int(selected)]
   filename = input(colored('CryptoFactory@File~path~#$ ','blue'))
 
   if selected == '1':

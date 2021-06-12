@@ -47,8 +47,8 @@ def md5ToString():
 	
 		if md5digest == md5hash:
 			print(colored("[+] The password is : " + str(password) ,"green"))
+			break
 	
-	print(colored("Password not in passwordlist. :(","yellow"))
 
 
 
@@ -60,10 +60,10 @@ def sha1ToString():
 		hashguess = hashlib.sha1(password.strip('\n').encode()).hexdigest()
 		if hashguess == sha1hash:
 			print(colored("[+] The password is : " + str(password) ,"green"))
+			break
 		else:
 			print(colored("[-] Password guess " + str(password) + " doesn't match :( ", "red"))
 
-	print(colored("Password not in passwordlist. :(","yellow"))
 
 def get_tools():
   tools = ['String -> Hash','MD5 -> String','SHA1 -> String']

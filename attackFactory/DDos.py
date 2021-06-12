@@ -315,7 +315,7 @@ def request_start():
         
 
 def get_attack_table():
-    attacks = ["slowloris DDos","SYNflood DDos","Requests DDos"]
+    attacks = ["slowloris DosScript","SYNflood DDosScript","Requests DosScript"]
     print(colored("\n Index       AttackType \n",'blue'))
     for attack in attacks:
         print( colored(" [  "+ str(attacks.index(attack)+1)+"  ]"+ "     "+ attack,'blue'))
@@ -336,20 +336,19 @@ def get_attack_table():
 
 def main():
     banner = '''
-	          
+		 ·▄▄▄▄        .▄▄ ·    ▄▄▄▄  ·▄▄▄▄        .▄▄ · 
+		██▪ ██ ▪     ▐█ ▀.     ██▪ ██ ██▪ ██ ▪     ▐█ ▀. 
+		▐█· ▐█▌ ▄█▀▄ ▄▀▀▀█▄    █· ▐█▌▐█· ▐█▌ ▄█▀▄ ▄▀▀▀█▄	
+		██. ██ ▐█▌.▐▌▐█▄▪▐█    ██. ██ ██. ██ ▐█▌.▐▌▐█▄▪▐█
+		▀▀▀▀▀•  ▀█▄▀▪ ▀▀▀▀     ▀▀▀▀▀• ▀▀▀▀▀•  ▀█▄▀▪ ▀▀▀▀ 
 
-					·▄▄▄▄  ·▄▄▄▄        .▄▄ · .▄▄ ·  ▄▄· ▄▄▄  ▪   ▄▄▄·▄▄▄▄▄
-					██▪ ██ ██▪ ██ ▪     ▐█ ▀. ▐█ ▀. ▐█ ▌▪▀▄ █·██ ▐█ ▄█•██  
-					▐█· ▐█▌▐█· ▐█▌ ▄█▀▄ ▄▀▀▀█▄▄▀▀▀█▄██ ▄▄▐▀▀▄ ▐█· ██▀· ▐█.▪
-					██. ██ ██. ██ ▐█▌.▐▌▐█▄▪▐█▐█▄▪▐█▐███▌▐█•█▌▐█▌▐█▪·• ▐█▌·
-					▀▀▀▀▀• ▀▀▀▀▀•  ▀█▄▀▪ ▀▀▀▀  ▀▀▀▀ ·▀▀▀ .▀  ▀▀▀▀.▀    ▀▀▀ 
-					
-					
-	 				Attack Factory | Script used for testing ddos | Ddos attack  
+			
+		
+	 	Attack Factory | Script used for testing ddos | Ddos attack  
 
-				[!] Daniel Of Service Attack of 3 types
-				[!] STRICKLY WARNING : Use it for only Educational purpose 
-				Either it can lead you to [x] jail [x]
+	[!] Daniel Of Service Attack of 3 types
+	[!] STRICKLY WARNING : Use it for only Educational purpose 
+	Either it can lead you to [x] jail [x]
 
     '''
     add_bots();add_useragent()

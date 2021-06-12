@@ -1,7 +1,7 @@
 from time import sleep, time
 from recconFactory import ARPscan,portScanner
 from attackFactory import MITM,BackdoorServer,DDos
-from BruteForceFactory import ftpBrute,sshBrute
+from CrackingFactory import CrackSSH,CrackFTP
 from HashFactory import hashFactory
 from CryptoFactory import Crypto,Zip_cracker
 from termcolor import colored
@@ -21,10 +21,10 @@ def main():
     'Port Scanner',
     'ARP Scanner',
     'Man In The Middle Automation',
-    'DDoS Automations',
+    'DoS and DDoS Automations',
     'Start Advance Backdoor Server',
-    'sshBrute - Linux Only',
-    'FtpBrute',
+    'CrackSSH - Linux Only',
+    'CrackFTP',
     'HashFactory',
     'Zip File Cracker',
     'Crypto For Files'
@@ -76,11 +76,11 @@ def main():
       loading(3)
       main()
     elif num=='6' or num == '06':
-      sshBrute.main()
+      CrackSSH.main()
       loading(3)
       main()
     elif num=='7' or num == '07':
-      ftpBrute.main()
+      CrackFTP.main()
       loading(3)
       main()
     elif num=='8' or num == '08':

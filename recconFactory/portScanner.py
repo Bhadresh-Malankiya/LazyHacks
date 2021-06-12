@@ -15,10 +15,11 @@ def connScan(tgtHost,tgtPort):
     sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
     sock.connect((tgtHost,tgtPort)) 
     print(colored(' '+str(tgtPort)+' /tcp Open ','green'))
+    sock.close()
   except :
     pass
-  finally:
-    sock.close()
+
+    
 
 def portScan(tgtHost,tgtPorts):
   try:
